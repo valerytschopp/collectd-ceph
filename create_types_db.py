@@ -35,7 +35,7 @@ class CollectdTypesDB(object):
 
     def ceph2collectd(self, type_num):
         if 8 & type_num:
-            return 'COUNTER'
+            return 'DERIVE'
         else:
             return 'GAUGE'
 
@@ -46,7 +46,7 @@ class CollectdTypesDB(object):
             if not collectd_types:
                 continue
 
-            dataset = ', '.join([ '%s:%s:U:U' % (name, self.ceph2collectd(type_num['type'])) for name, type_num in collectd_types.iteritems() ])
+            dataset = ', '.join([ '%s:%s:0:U' % (name, self.ceph2collectd(type_num['type'])) for name, type_num in collectd_types.iteritems() ])
             tmp += '%s %s\n' % (plugin_instance, dataset)
 
         return tmp
