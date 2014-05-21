@@ -1,0 +1,9 @@
+ceph v0.67.8 collectd ceph.types.db for osd, mon, rgw.
+    
+concat, sort lines, remove dups, of:
+
+  s2:root# ./create_types_db.py /var/run/ceph/ceph-client.radosgw.gateway.asok
+  h4:root# ./create_types_db.py /var/run/ceph/ceph-osd.3.asok
+ hxs:root# ./create_types_db.py /var/run/ceph/ceph-mon.hxs.asok
+
+
